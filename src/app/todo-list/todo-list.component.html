@@ -1,0 +1,14 @@
+<h1>To-Do List</h1>
+<label for="ToDo">ToDo:</label>
+<input type="text" #inputValue [(ngModel)]="toDoItem" />
+<button (click)="submitToDo()">Post ToDo</button>
+
+<div>
+  @for(todo of toDosArray; track todo.id){
+  <ul>
+    <li>
+      <app-todo-item [toDoItem]="todo.title" />
+    </li>
+  </ul>
+  }
+</div>
