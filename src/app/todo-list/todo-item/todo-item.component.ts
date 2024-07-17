@@ -1,4 +1,11 @@
-import { Component, Input, input, signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  input,
+  Output,
+  signal,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,4 +17,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class TodoItemComponent {
   @Input({ required: true }) toDoItem: string = '';
+  @Input({ required: true }) status: string = '';
+  @Output() toDoDelete = new EventEmitter<void>();
+  @Output() toDoComplete = new EventEmitter<void>();
+
+  deleteToDo() {
+    this.toDoDelete.emit();
+  }
+
+  completeToDo() {
+    this.toDoComplete.emit();
+  }
 }

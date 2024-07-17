@@ -1,1 +1,5 @@
-<p>{{ toDoItem }}</p>
+<div>
+  <p class="toDoItem">{{ toDoItem }}</p>
+  <button (click)="deleteToDo()">Delete</button>
+  <button (click)="completeToDo()">{{ status }}</button>
+</div>

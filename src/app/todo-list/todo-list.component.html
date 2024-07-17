@@ -7,7 +7,12 @@
   @for(todo of toDosArray; track todo.id){
   <ul>
     <li>
-      <app-todo-item [toDoItem]="todo.title" />
+      <app-todo-item
+        [toDoItem]="todo.title"
+        [status]="todo.complete"
+        (toDoDelete)="deleteToDo(todo.id)"
+        (toDoComplete)="handleComplete(todo.id)"
+      />
     </li>
   </ul>
   }
